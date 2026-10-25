@@ -1,11 +1,14 @@
 package logika;
 
 public interface IHra {
+
+    String vratUvitani();
+
+    String vratEpilog();
+
     boolean konecHry();
 
-    String zpracujPrikaz(String prikaz);
+    String zpracujPrikaz(String radek);
 
     HerniPlan getHerniPlan();
-
-    void setKonecHry(boolean konecHry);
 }

@@ -22,8 +22,11 @@ public class SeznamPrikazu {
     public String vratNazvyPrikazu() {
         StringBuilder sb = new StringBuilder();
         for (String nazev : prikazy.keySet()) {
-            sb.append(nazev).append(" ");
+            if (!sb.isEmpty()) {
+                sb.append(", ");
+            }
+            sb.append(nazev);
         }
-        return sb.toString().trim();
+        return sb.toString();
     }
 }
