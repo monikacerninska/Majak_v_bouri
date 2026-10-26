@@ -1,7 +1,8 @@
 package logika;
 
 public class PlnyKosicekException extends Exception {
-    public PlnyKosicekException(String message) {
+
+    public PlnyKosicekException() {
         super("Košíček je plný.");
     }
 }

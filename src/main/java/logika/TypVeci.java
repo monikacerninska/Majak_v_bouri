@@ -8,14 +8,16 @@ public enum TypVeci {
     private final String ceskyNazev;
     private final boolean prenositelna;
 
-    private TypVeci(String ceskyNazev, boolean prenositelna) {
+    TypVeci(String ceskyNazev, boolean prenositelna) {
         this.ceskyNazev = ceskyNazev;
         this.prenositelna = prenositelna;
     }
 
     public String getCeskyNazev() {
-        return this.ceskyNazev;}
-    public boolean isPrenositelna() {
-        return this.prenositelna;}
+        return ceskyNazev;
+    }
 
+    public boolean isPrenositelna() {
+        return prenositelna;
+    }
 }

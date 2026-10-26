@@ -5,41 +5,38 @@ import java.util.Collections;
 import java.util.List;
 
 public class Kosicek {
-    private static final int KAPACITA = 7;
-    private final List<Vec> veci = new ArrayList();
 
-    public Kosicek() {
-    }
+    private static final int KAPACITA = 7;
+
+    private final List<Vec> veci = new ArrayList<>();
 
     public void vloz(Vec vec) throws PlnyKosicekException {
         if (vec == null) {
-            throw new IllegalArgumentException("Do košíčku nelze vložit prázdný předmet.");
-        } else if(this.veci.size() >= 7) {
-            throw new PlnyKosicekException();
-        } else {
-            this.veci.add(vec);
+            throw new IllegalArgumentException("Do košíčku nelze vložit prázdný předmět.");
         }
+        if (veci.size() >= KAPACITA) {
+            throw new PlnyKosicekException();
+        }
+        veci.add(vec);
     }
 
     public Vec vyndej(String nazevVeci) throws VecNeniVKosickuException {
-        for(int i = 0; i < this.veci.size(); ++i) {
-            Vec vec = (Vec)this.veci.get(i);
-            if (this.shodujeSe(vec, nazevVeci)) {
-                this.veci.remove(i);
+        for (int i = 0; i < veci.size(); i++) {
+            Vec vec = veci.get(i);
+            if (shodujeSe(vec, nazevVeci)) {
+                veci.remove(i);
                 return vec;
             }
         }
-
         throw new VecNeniVKosickuException(nazevVeci);
     }
 
     public boolean obsahuje(String nazevVeci) {
-        for(Vec vec : this.veci) {
-            if (this.shodujeSe(vec, nazevVeci)) {
+        for (Vec vec : veci) {
+            if (shodujeSe(vec, nazevVeci)) {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -50,18 +47,18 @@ public class Kosicek {
     }
 
     public List<Vec> getVeci() {
-        return Collections.unmodifiableList(new ArrayList(this.veci));
+        return Collections.unmodifiableList(new ArrayList<>(veci));
     }
 
     void nastavVeci(List<Vec> noveVeci) {
-        if (noveVeci.size() > 7) {
-            throw new IllegalArgumentException("Obsah přesahuje kapacitu košíčku.");
-        } else {
-            this.veci.clear();
-            this.veci.addAll(noveVeci);
+        if (noveVeci.size() > KAPACITA) {
+            throw new IllegalArgumentException("Obsah překračuje kapacitu košíčku.");
         }
+        veci.clear();
+        veci.addAll(noveVeci);
     }
+
     public int getKapacita() {
-        return 7;
+        return KAPACITA;
     }
 }

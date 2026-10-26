@@ -1,6 +1,7 @@
 package logika;
 
 public class Vec {
+
     private final String nazev;
     private final TypVeci typ;
 
@@ -10,14 +11,14 @@ public class Vec {
     }
 
     public String getNazev() {
-        return this.nazev;
+        return nazev;
     }
 
     public TypVeci getTyp() {
-        return this.typ;
+        return typ;
     }
 
     public boolean jePrenositelna() {
-        return this.typ.isPrenositelna();
+        return typ.isPrenositelna();
     }
 }

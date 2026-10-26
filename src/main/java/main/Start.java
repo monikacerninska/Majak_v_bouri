@@ -4,9 +4,6 @@ import logika.Hra;
 import logika.IHra;
 import uiText.TextoveRozhrani;
 
-/**
- * Spouštěcí třída hry.
- */
 public class Start {
 
     public static void main(String[] args) {
